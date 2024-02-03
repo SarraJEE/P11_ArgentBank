@@ -1,12 +1,14 @@
 // FeaturesSection.js
 import React from 'react';
-
+import IconChat from "../../assets/image/icon-chat.webp"
+import IconMoney from "../../assets/image/icon-money.webp"
+import IconSecurity from "../../assets/image/icon-security.webp"
 function HomeFeatures() {
   return (
     <section className="features">
       <h2 className="sr-only">Features</h2>
       <div className="feature-item">
-        <img src="../../assets/image/icon-chat.png" alt="Chat Icon" className="feature-icon" />
+        <img src={ IconChat} alt="Chat Icon" className="feature-icon" />
         <h3 className="feature-item-title">You are our #1 priority</h3>
         <p>
           Need to talk to a representative? You can get in touch through our
@@ -15,7 +17,7 @@ function HomeFeatures() {
       </div>
       <div className="feature-item">
         <img
-          src="../../assets/image/icon-money.png"
+          src={IconMoney}
           alt="Chat Icon"
           className="feature-icon"
         />
@@ -26,7 +28,7 @@ function HomeFeatures() {
       </div>
       <div className="feature-item">
         <img
-          src="../../assets/image/icon-security.png"
+          src={IconSecurity}
           alt="Chat Icon"
           className="feature-icon"
         />
