@@ -1,22 +1,41 @@
 
 import React from 'react';
-import logo from "../../assets/image/argentBankLogo.png";
-import { NavLink, Link } from "react-router-dom";
+import { NavLink} from "react-router-dom";
+import argentBankLogo from "../../assets/image/argentBankLogo.png";
 
 function Header() {
+    
     return (
         <nav className="main-nav">
-            <Link className="main-nav-logo" to="/">
-                <img className="main-nav-logo-image" src={logo} alt="Argent Bank Logo" />
+            <NavLink to="/" className="main-nav-logo">
+                <img
+                    className="main-nav-logo-image"
+                    src={argentBankLogo}
+                    alt="Argent Bank Logo"
+                />
                 <h1 className="sr-only">Argent Bank</h1>
-            </Link>
-            <div>
-                < NavLink className="main-nav-item" to="/login">
-                    <i className="fa fa-user-circle"></i>
-                    Sign In
-                </NavLink>
-            </div>
+            </NavLink>
+            
+                ? <div>
+                    <NavLink to="/profile" className="main-nav-item">
+                        <i className="fa fa-user-circle"></i>
+                        <span id="nav-user-firstname">Tony</span>
+                    </NavLink>
+                    <NavLink to="/" className="main-nav-item" >
+                        <i className="fa fa-sign-out"></i>
+                        Sign Out
+                    </NavLink>
+                </div>
+                : <div>
+                    <NavLink to="/login" className="main-nav-item">
+                        <i className="fa fa-user-circle"></i>
+                        Sign In
+                    </NavLink>
+                </div>
+            
         </nav>
-    );
+    )
 }
+
+
 export default Header;

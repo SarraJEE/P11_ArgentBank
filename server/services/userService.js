@@ -49,12 +49,13 @@ module.exports.getUserProfile = async serviceData => {
 module.exports.loginUser = async serviceData => {
   try {
     const user = await User.findOne({ email: serviceData.email })
-
+console.log(`user________=`, user)
     if (!user) {
       throw new Error('User not found!')
     }
-
-    const isValid = await bcrypt.compare(serviceData.password, user.password)
+console.log('serviceData.password_____='+serviceData.password+'____')
+console.log(`user.password------------=`, user.password)
+    const isValid = bcrypt.compare(serviceData.password, user.password)
 
     if (!isValid) {
       throw new Error('Password is invalid')

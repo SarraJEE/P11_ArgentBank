@@ -5,7 +5,7 @@ import Login from "./pages/Login/Login.jsx";
 import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import User from "./pages/User/User.jsx";
-
+import Error from "./pages/Error/Error.jsx";
 const App = () => {
   return (
     <BrowserRouter>
@@ -13,7 +13,8 @@ const App = () => {
       <Routes>
       <Route path="/" element={<Home />} />
       <Route path="/login" element={<Login />} />
-      <Route path="/user" element={<User />} />
+      <Route path="/profile" element={<User />} />
+      <Route path="*" element={<Error />} />
       </Routes>
       <Footer />
     </BrowserRouter>
