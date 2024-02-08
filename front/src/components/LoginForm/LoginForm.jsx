@@ -1,22 +1,30 @@
-import React, { useState } from 'react'
+import { useEffect, useState } from "react";
 import { useDispatch, useSelector } from 'react-redux'
 import { useNavigate } from "react-router";
 import { getToken } from '../../actions/loginAction'; // Utilisez exactement la même casse que le nom du fichier
 
 
 function LoginForm() {
+  useEffect(() => { document.title = "Argent Bank - Connexion" });
   const [email, setEmail] = useState('')
   const [password, setPassword] = useState('')
   const navigate = useNavigate();
   const dispatch = useDispatch()
   const message = useSelector((state) => state.getUser.user.status)
-
+  const rememberMe = document.getElementById("remember-me");
+  useEffect(() => {
+    if (localStorage.length > 0) {
+      navigate('/profile');
+    }
+  })
   const handleSubmit = async (e) => {
     e.preventDefault()
+    
     if (email === '' || password === '') {
       // Gérer le cas où l'email ou le mot de passe est vide
     } else {
-      dispatch(getToken(email, password))
+      dispatch(getToken(email, password,rememberMe))
+      
     }
   }
 

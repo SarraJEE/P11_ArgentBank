@@ -26,7 +26,7 @@ export const loadApiTokenError = createAction(
 
 export const logOut = createAction('logout')
 
-export const getToken = (email, password) => {
+export const getToken = (email, password,rememberMe) => {
     
  return (dispatch) => {
    dispatch(loadApiToken())
@@ -40,6 +40,9 @@ export const getToken = (email, password) => {
        localStorage.setItem('token', response.data.body.token)
        const token = localStorage.getItem('token')
        dispatch(getUser(token))
+       if (rememberMe.checked) {
+        sessionStorage.setItem("token",response.data.body.token );
+      }
      })
      .catch((error) => {
        dispatch(loadApiTokenError(error.message))
