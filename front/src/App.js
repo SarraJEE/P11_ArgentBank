@@ -6,6 +6,7 @@ import Header from './components/Header/Header.jsx';
 import Footer from './components/Footer/Footer.jsx';
 import User from "./pages/User/User.jsx";
 import Error from "./pages/Error/Error.jsx";
+
 const App = () => {
   return (
     <BrowserRouter>

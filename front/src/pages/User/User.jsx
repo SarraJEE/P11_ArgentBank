@@ -23,9 +23,6 @@ function User() {
     )
 }
 
-function getToken(token) {
-    let userToken = token;
-    return userToken;
-}
+
 
 export default User;
