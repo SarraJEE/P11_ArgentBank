@@ -8,7 +8,11 @@ import {
   loadApiUserSuccess,
 } 
 from '../actions/userAction.js'
-
+import {
+  loadApiEditUser,
+  loadApiEditUserSuccess,
+  loadApiEditUserError,
+} from '../actions/userAction.js'
 import { logOut } from '../actions/userAction.js'
 
 // REDUCER // ______________________________________________________________
@@ -48,5 +52,25 @@ export const userReducer = createReducer(initialStateUser, (builder) => {
       draft.error = action.payload
       return
     })
-    
+    .addCase(loadApiEditUser, (draft) => {
+      draft.isLoading = true
+      return
+    })
+    .addCase(loadApiEditUserSuccess, (draft, action) => {
+      draft.isLoading = false
+      draft.user = action.payload
+      draft.error = ''
+      return
+    })
+    .addCase(loadApiEditUserError, (draft, action) => {
+      draft.isLoading = false
+      draft.user = {}
+      draft.error = action.payload
+      return
+    })
+
+
+
+
+
 })
